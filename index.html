@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>PayPal</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+.w3-half img:hover{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <img src="paypal.png" alt="Logo" style="height:70px;">
+    <h3 class="w3-padding-64"><b>PayPal<br>system</b></h3>
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Overview</a>
+    <a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Features</a>
+    <div class="w3-bar-item w3-button w3-hover-white">API Documentation
+      <div class="w3-bar-block w3-margin-left">
+        <a href="#payment" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Payment</a>
+        <a href="#withdraw" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Withdraw</a>
+        <a href="#check-balance" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Check Balance</a>
+      </div>
+    </div>
+    <a href="#architectural-design" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Architectural Design</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Company Name</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <!-- Overview -->
+  <div class="w3-container" id="services" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Project Overview</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p style="text-align: justify;">The Payment, Withdrawal, and Balance API is a powerful tool that allows developers to integrate secure and reliable payment processing functionalities into their applications or systems. It enables developers to accept payments from customers or users, implement withdrawal functionality, and retrieve account balance information programmatically. This feature is particularly useful for platforms or applications that involve peer-to-peer transactions, online marketplaces, or financial management systems. Developers should consult the API documentation or consult the provider for detailed information on how to integrate and utilize these features effectively.</p>
+  </div>
+
+  <!-- Features -->
+  <div class="w3-container" id="designers" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Features</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+  </div>
+
+  <!-- The Features -->
+  <div class="w3-row-padding w3-grayscale">
+    <ul class="w3-ul w3-card w3-white">
+      <li class="w3-padding">
+        <h3><b>Payment API</b></h3>
+        <p>Enables software programs to interact and communicate with a payment gateway or processor to streamline payment transactions. Developers can incorporate payment functionality into their applications using the standardized set of methods, protocols, and data formats provided by this system.</p>
+        <p><b>This will have:</b></p>
+        <p><b>1. Payment Processing:</b> The transaction request is received by the payment API and sent to the gateway, the gateway/processor evaluates the request and carries out any necessary checks.</p>
+        <p><b>2. Response Handling:</b> After processing the transaction, the payment gateway sends a response back to the application via the API. This response typically includes information about the transaction status (success, failure, pending) and any relevant details (transaction ID, payment authorization code, etc.)</p>
+        <p><b>3. Transaction Initialization:</b> After integration and authentication, the application can start a payment transaction by submitting a request to the payment API. The details of the customer and the payment amount, as well as the currency, are included in this request.</p>
+      </li>
+      <li class="w3-padding">
+        <h3><b>Withdrawal API</b></h3>
+        <p>Enables software programs to ask for and manage the transfer of money from an account to a third-party location, like a bank account or online wallet. It also simplifies the process of initiating and tracking fund transfers, providing developers with a secure and efficient method for handling financial transactions.</p>
+        <p><b>This will have:</b></p>
+        <p><b>1. Requesting a Withdrawal:</b> When a user wants to withdraw money, your app or website sends a request to the withdrawal API. You include details like the amount the user wants to withdraw and where they want the money to go (like their bank account).</p>
+        <p><b>2. Processing the Withdrawal:</b> The withdrawal API receives the request and makes sure everything looks good. It checks if the user has enough money in their account and verifies the request's validity.</p>
+        <p><b>3. Response Handling:</b> Once the transfer is complete, the withdrawal API sends a response back to your app or website. This response lets you know if the withdrawal was successful or not. It may also provide additional details, like a withdrawal ID or a transaction reference.</p>
+      </li>
+      <li class="w3-padding">
+        <h3><b>Check Balance API</b></h3>
+        <p>Allows software applications to retrieve and display the balance of an account or a specific asset within an account. It enables developers to fetch and present account balance information in their applications.</p>
+        <p><b>This will have:</b></p>
+        <p><b>1. Authentication:</b> To ensure secure access, the API requires authentication. The service provider typically provides developers with an API key or credentials, which they use to authenticate their requests.</p>
+        <p><b>2. Retrieving the Balance:</b> The balance API receives the request and processes it. It communicates with the underlying system or database to retrieve the account or asset balance associated with the provided parameters.</p>
+        <p><b>3. Requesting the Balance:</b> The application can ask for the balance by making a specific request to the balance API after integration and authentication. The account identifier or any other necessary parameters to specify which account or asset balance is required may be included in this request.</p>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Payment Sidebar -->
+<div class="w3-container w3-card w3-white w3-margin-top" id="payment">
+  <h4 class="w3-text-blue"><b>Payment</b></h4>
+  
+  <p><b>Log in</b></p>
+  <img src="login1.png" alt="Log in" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>POST: http://localhost:8003/api/login?email=paytrans@gmail.com&password=12345678</b></p>
+  <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>paytrans@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>12345678</td>
+    </tr>
+  </table>
+  
+  <p><b>Log in</b></p>
+  <img src="login2.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+  <img src="login3.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+
+
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0Ojg
+     wMDMvYXBpL2xvZ2luIiwiaWF0IjoxNjg3NTMzNzExLCJleHAiOjE2ODc1MzczMTEsIm5iZiI6MTY4NzUzMzcxMSwi
+     anRpIjoiVDVWVEdralo4ZnVSOXVrQyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MD
+     A4NzJkYjdhNTk3NmY3In0.iF9ySHqgUmh7vShsGjzwgm6T1pqf3a2678yfbx9Mn-c",
+  "token_type": "bearer",
+  "user": {
+    "id": 1,
+    "name": "paytrans",
+    "email": "paytrans@gmail.com",
+    "email_verified_at": null,
+    "password": "$2y$10$D6ma23AjPNditbwrPJ56deSt/DH7cSaG6XdDmv6/ee7ZMOC/oSGX.",
+    "remember_token": null,
+    "created_at": "2023-06-17T03:42:53.000000Z",
+    "updated_at": "2023-06-17T03:42:53.000000Z"
+  },
+  "expires_in": 86400
+}
+  </code></pre>
+  
+  <p><b>User Profile</b></p>
+  <img src="userprofile.png" alt="User Profile" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "id": 1,
+  "name": "paytrans",
+  "email": "paytrans@gmail.com",
+  "email_verified_at": null,
+  "password": "$2y$10$D6ma23AjPNditbwrPJ56deSt/DH7cSaG6XdDmv6/ee7ZMOC/oSGX.",
+  "remember_token": null,
+  "created_at": "2023-06-17T03:42:53.000000Z",
+  "updated_at": "2023-06-17T03:42:53.000000Z"
+}
+  </code></pre>
+  
+  <p><b>Refresh</b></p>
+  <img src="refresh.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvYXBpL3J
+  lZnJlc2giLCJpYXQiOjE2ODc1MzM3MTEsImV4cCI6MTY4NzUzNzQ1OCwibmJmIjoxNjg3NTMzODU4LCJqdGkiOiJYdlVpakFnc21l
+  SjF2enJKIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.v6fpUGae1E
+  VfhfzZP6Tb_4iDLRYXa1xcHYbGD-qvHvI",
+  "token_type": "bearer",
+  "user": null,
+  "expires_in": 86400
+}
+  </code></pre>
+  
+  <p><b>Log-out</b></p>
+  <img src="logout.png" alt="Log-out" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "message": "Successfully logged out"
+}
+  </code></pre>
+</div>
+<!-- End Payment Sidebar -->
+
+
+  <!-- Withdraw Sidebar -->
+<div class="w3-container w3-card w3-white w3-margin-top" id="withdraw">
+  <h4 class="w3-text-blue"><b>Withdraw</b></h4>
+  
+  <p><b>Log in</b></p>
+  <img src="wlogin1.png" alt="Log in" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>POST: http://localhost:8003/api/login?email=paytrans@gmail.com&password=12345678</b></p>
+  <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>paytrans@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>12345678</td>
+    </tr>
+  </table>
+
+  <p><b>Log in</b></p>
+  <img src="wlogin2.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+  <img src="wlogin3.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvY
+  XBpL2xvZ2luIiwiaWF0IjoxNjg3NTM0MDM1LCJleHAiOjE2ODc1Mzc2MzUsIm5iZiI6MTY4NzUzNDAzNSwianRpIjoiWkVJ
+  UEhweG5UaHMwNVlLMSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY
+  3In0.KFvlJzFHiY8fkDo1L63qPcm4SXLJ3NA0o07pQj-r_vI",
+  "token_type": "bearer",
+  "user": {
+    "id": 1,
+    "name": "paytrans",
+    "email": "paytrans@gmail.com",
+    "email_verified_at": null,
+    "password": "$2y$10$D6ma23AjPNditbwrPJ56deSt/DH7cSaG6XdDmv6/ee7ZMOC/oSGX",
+    "remember_token": null,
+    "created_at": "2023-06-17T03:42:53.000000Z",
+    "updated_at": "2023-06-17T03:42:53.000000Z"
+  },
+  "expires_in": 86400
+}
+  </code></pre>
+  
+  <p><b>User Profile</b></p>
+  <img src="wuserprofile.png" alt="User Profile" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "id": 1,
+  "name": "paytrans",
+  "email": "paytrans@gmail.com",
+  "email_verified_at": null,
+  "password": "$2y$10$D6ma23AjPNditbwrPJ56deSt/DH7cSaG6XdDmv6/ee7ZMOC/oSGX",
+  "remember_token": null,
+  "created_at": "2023-06-17T03:42:53.000000Z",
+  "updated_at": "2023-06-17T03:42:53.000000Z"
+}
+  </code></pre>
+  
+  <p><b>Refresh</b></p>
+  <img src="wrefresh.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvY
+  XBpL3JlZnJlc2giLCJpYXQiOjE2ODc1MzQwMzUsImV4cCI6MTY4NzUzNzcyMSwibmJmIjoxNjg3NTM0MTIxLCJqdGkiOiIz
+  ZU51eVZrTnVhVUt2RVduIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc
+  2ZjcifQ.We9ex2P3iRuzJbpmsxLoBn9UEIAOVC9LyyDv-BI240M",
+  "token_type": "bearer",
+  "user": null,
+  "expires_in": 86400
+}
+  </code></pre>
+  
+  <p><b>Log-out</b></p>
+  <img src="wlogout.png" alt="Log-out" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  “message”: “Successfully logged out”
+}
+  </code></pre>
+</div>
+<!-- End Withdraw Sidebar -->
+
+
+ <!-- Check Balance Sidebar -->
+<div class="w3-container w3-card w3-white w3-margin-top" id="check-balance">
+  <h4 class="w3-text-blue"><b>Check Balance</b></h4>
+  
+  <p><b>Log in</b></p>
+  <img src="clogin1.png" alt="Log in" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>POST: http://localhost:8003/api/login?email=paytrans@gmail.com&password=12345678</b></p>
+  <table class="w3-table w3-striped w3-bordered">
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>Email</td>
+      <td>paytrans@gmail.com</td>
+    </tr>
+    <tr>
+      <td>Password</td>
+      <td>12345678</td>
+    </tr>
+  </table>
+  
+  <p><b>Log in</b></p>
+  <img src="clogin2.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+  <img src="clogin3.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+
+
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvY
+  XBpL2xvZ2luIiwiaWF0IjoxNjg3NTM0Mjc1LCJleHAiOjE2ODc1Mzc4NzUsIm5iZiI6MTY4NzUzNDI3NSwianRpIjoiWFRC
+  STV2UEc2aHFOTndQZyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY
+  3In0.dDCT-U-ZL-Y8TRfWKUaapGDjybvKbxeuFuQFzyxoHS4",
+  "token_type": "bearer",
+  "user": {
+    "id": 1,
+    "name": "paytrans",
+    "email": "paytrans@gmail.com",
+    "email_verified_at": null,
+    "password": "$2y$10$D6ma23AjPNditbwrPJ56deSt/DH7cSaG6XdDmv6/ee7ZMOC/oSGX.",
+    "remember_token": null,
+    "created_at": "2023-06-17T03:42:53.000000Z",
+    "updated_at": "2023-06-17T03:42:53.000000Z"
+  },
+  "expires_in": 86400
+}
+  </code></pre>
+  
+  <p><b>User Profile</b></p>
+  <img src="cuserprofile.png" alt="User Profile" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "id": 1,
+  "name": "paytrans",
+  "email": "paytrans@gmail.com",
+  "email_verified_at": null,
+  "password": "$2y$10$D6ma23AjPNditbwrPJ56deSt/DH7cSaG6XdDmv6/ee7ZMOC/oSGX.",
+  "remember_token": null,
+  "created_at": "2023-06-17T03:42:53.000000Z",
+  "updated_at": "2023-06-17T03:42:53.000000Z"
+}
+  </code></pre>
+  
+  <p><b>Refresh</b></p>
+  <img src="crefresh.png" alt="Refresh" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDMvY
+  XBpL3JlZnJlc2giLCJpYXQiOjE2ODc1MzQyNzUsImV4cCI6MTY4NzUzODAzNSwibmJmIjoxNjg3NTM0NDM1LCJqdGkiOiIw
+  VnZmYTRpUjlhTTVHZ2UyIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc
+  2ZjcifQ.MpwKNzUWcQqD8O0aR8a6jxfweog6-gTcBhSLRxZUNTM",
+  "token_type": "bearer",
+  "user": null,
+  "expires_in": 86400
+}
+  </code></pre>
+  
+  <p><b>Log-out</b></p>
+  <img src="clogout.png" alt="Log-out" style="width:100%; margin-bottom: 20px;">
+  
+  <p><b>Response:</b></p>
+  <pre><code>
+{
+  “message”: “Successfully logged out”
+}
+  </code></pre>
+</div>
+<!-- End Check Balance Sidebar -->
+
+
+  <!-- Architectural Design -->
+  <div class="w3-container" id="architectural-design" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Architectural Design</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <img src="design.jpg" alt="Architectural Design" style="width:100%;">
+    </p>
+  </div>
+</div>
+</body>
+</html>
